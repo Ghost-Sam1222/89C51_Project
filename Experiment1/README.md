@@ -1,18 +1,29 @@
-# Experiment 1
+# 实验一：数码管正计时 / 倒计时
 
-This folder marks the first 89C51 experiment backup.
+本文件夹用于归档实验一的最终程序和烧录文件。
 
-Current experiment 1 files were backed up in the repository root earlier:
+## 功能说明
 
-- CountUp.C
-- test.hex
-- test.Uv2
-- test.Opt
-- STARTUP.A51
+- 使用 51 单片机控制数码管显示计数值。
+- 拨码开关选择计数模式。
+- 开关 1：正计时，从 0 计到 100。
+- 开关 2：倒计时，从 60 计到 0。
+- 默认状态不计数或保持等待。
+- 定时采用定时器中断实现。
 
-Function summary:
+## 文件说明
 
-- SW2-1 selects count-up mode.
-- SW2-2 selects count-down mode.
-- Timer0 interrupt provides timing for the stopwatch behavior.
-- The generated HEX file is `test.hex`.
+- `CountUp.C`：实验一 C 源程序。
+- `test.hex`：Keil 编译生成的烧录文件。
+
+## 接线说明
+
+- 数码管显示模块保持实验讲义原接线。
+- `P3.0` 连接显示模块 `DATA`。
+- `P3.1` 连接显示模块 `CLK`。
+- 拨码开关使用开发板原有 `SW2`，不需要改接线。
+
+## 调试说明
+
+在 Keil Debug 中可通过 `Peripherals -> I/O-Ports -> Port 1` 打开 P1 口窗口。
+拨码开关为低电平有效，窗口中取消对应位的勾表示该开关拨上。
